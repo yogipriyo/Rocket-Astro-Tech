@@ -15,27 +15,17 @@ struct RocketItemViewModel: Identifiable {
         return item.id
     }
   
-//  var day: String {
-//    return dayFormatter.string(from: item.date)
-//  }
-//
-//  var month: String {
-//    return monthFormatter.string(from: item.date)
-//  }
-//
-//  var temperature: String {
-//    return String(format: "%.1f", item.main.temp)
-//  }
-//
-//  var title: String {
-//    guard let title = item.weather.first?.main.rawValue else { return "" }
-//    return title
-//  }
-//
-//  var fullDescription: String {
-//    guard let description = item.weather.first?.weatherDescription else { return "" }
-//    return description
-//  }
+    var name: String {
+        return item.name
+    }
+
+    var imageUrl: String {
+        return item.flickrImages.first ?? "https://www.spacex.com/static/images/share.jpg"
+    }
+
+    var description: String {
+        return item.description
+    }
   
     init(item: RocketDetails) {
         self.item = item

@@ -22,6 +22,7 @@ extension RocketFetcher: RocketFetchable {
             let error = RocketError.network(description: "Couldn't create URL")
             return Fail(error: error).eraseToAnyPublisher()
         }
+        
         return session.dataTaskPublisher(for: URLRequest(url: url))
             
         .mapError { error in
@@ -54,7 +55,6 @@ private extension RocketFetcher {
         components.scheme = SpaceXDataAPI.scheme
         components.host = SpaceXDataAPI.host
         components.path = SpaceXDataAPI.path + "/rockets"
-    
         return components
     }
 }

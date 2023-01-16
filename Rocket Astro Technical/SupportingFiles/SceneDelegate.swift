@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = scene as? UIWindowScene else { return }
 
-        let rocketListView = RocketListView()
+        let fetcher = RocketFetcher()
+        let viewModel = RocketListViewModel(rocketFetcher: fetcher)
+        let rocketListView = RocketListView(viewModel: viewModel)
 
         // Use a UIHostingController as window root view controller
         let window = UIWindow(windowScene: windowScene)

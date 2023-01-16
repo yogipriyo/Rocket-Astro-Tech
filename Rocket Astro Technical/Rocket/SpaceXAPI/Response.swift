@@ -61,7 +61,7 @@ struct FirstStage: Codable {
     let thrustVacuum: Thrust
     let reusable: Bool
     let engines: Int
-    let fuelAmountTons: Int
+    let fuelAmountTons: Double?
     let burnTimeSec: Int?
     
     enum CodingKeys: String, CodingKey {
@@ -78,7 +78,7 @@ struct SecondStage: Codable {
     let payloads: Payload
     let reusable: Bool
     let engines: Int
-    let fuelAmountTons: Int
+    let fuelAmountTons: Double?
     let burnTimeSec: Int?
     
     enum CodingKeys: String, CodingKey {
@@ -125,8 +125,8 @@ struct Engine: Codable {
     let number: Int
     let type: String
     let version: String
-    let layout: String
-    let engineLossMax: Int
+    let layout: String?
+    let engineLossMax: Int?
     let propellant1: String
     let propellant2: String
     let thrustToWeight: Double

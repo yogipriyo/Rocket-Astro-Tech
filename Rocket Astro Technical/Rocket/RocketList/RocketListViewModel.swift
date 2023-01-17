@@ -12,6 +12,7 @@ class RocketListViewModel: ObservableObject, Identifiable {
     @Published var rocketName: String = ""
     @Published var dataSource: [RocketItemViewModel] = []
 
+    private var originDataSource: [RocketItemViewModel] = []
     private let rocketFetcher: RocketFetchable
     private var disposables = Set<AnyCancellable>()
 
@@ -25,13 +26,18 @@ class RocketListViewModel: ObservableObject, Identifiable {
         
         $rocketName
             .dropFirst(1)
-            .debounce(for: .seconds(0.5), scheduler: scheduler)
+            .debounce(for: .seconds(1), scheduler: scheduler)
             .sink(receiveValue: filterRocket(forRocket:))
             .store(in: &disposables)
     }
     
     func filterRocket(forRocket name: String) {
-        print("_+_+_ \(name)")
+        if !name.isEmpty {
+            let newRocketList = originDataSource.filter { $0.name.contains(name) }
+            self.dataSource = newRocketList
+        } else {
+            self.dataSource = originDataSource
+        }
     }
     
     func fetchRocket() {
@@ -46,6 +52,7 @@ class RocketListViewModel: ObservableObject, Identifiable {
                     switch value {
                     case .failure:
                         self.dataSource = []
+                        self.originDataSource = []
                     case .finished:
                         break
                     }
@@ -53,6 +60,7 @@ class RocketListViewModel: ObservableObject, Identifiable {
                 receiveValue: { [weak self] rockets in
                     guard let self = self else { return }
                     self.dataSource = rockets
+                    self.originDataSource = rockets
             })
             .store(in: &disposables)
     }

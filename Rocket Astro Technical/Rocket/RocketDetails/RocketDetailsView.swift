@@ -8,7 +8,35 @@
 import SwiftUI
 
 struct RocketDetailsView: View {
+    
+    private let viewModel: RocketDetailsViewModel
+  
+    init(viewModel: RocketDetailsViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        Text("Seems like a lovely rocket 😎")
+        VStack(alignment: .leading, spacing: 20) {
+            CustomImageView(urlString: viewModel.imageUrl)
+                
+            Text("\(viewModel.name)")
+                .font(.title.bold())
+                
+            Text("\(viewModel.description)")
+                .font(.body)
+                
+            Text("Cost per launch: USD \(viewModel.costPerLaunch)")
+                .font(.body)
+                
+            Text("Country: \(viewModel.country)")
+                .font(.body)
+                
+            Text("First Flight: \(viewModel.firstFlight)")
+                .font(.body)
+            
+            Spacer()
+        }
+        .padding(10)
+        .navigationBarTitle("Rocket Details")
     }
 }

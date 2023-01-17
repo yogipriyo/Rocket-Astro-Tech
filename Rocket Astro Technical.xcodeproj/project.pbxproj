@@ -22,6 +22,7 @@
 		216A7E3E2975B21D0090AED2 /* RocketItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E3D2975B21D0090AED2 /* RocketItemViewModel.swift */; };
 		216A7E4129765B360090AED2 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E4029765B350090AED2 /* CustomImageView.swift */; };
 		216A7E4429765B5D0090AED2 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E4329765B5D0090AED2 /* ImageLoaderService.swift */; };
+		216A7E4629766A870090AED2 /* RocketDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E4529766A870090AED2 /* RocketDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		216A7E3D2975B21D0090AED2 /* RocketItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketItemViewModel.swift; sourceTree = "<group>"; };
 		216A7E4029765B350090AED2 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		216A7E4329765B5D0090AED2 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
+		216A7E4529766A870090AED2 /* RocketDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				216A7E2D2974E2580090AED2 /* RocketDetailsView.swift */,
+				216A7E4529766A870090AED2 /* RocketDetailsViewModel.swift */,
 			);
 			path = RocketDetails;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				216A7E342974EED90090AED2 /* RocketError.swift in Sources */,
 				216A7E2C2974D2990090AED2 /* RocketListView.swift in Sources */,
 				216A7E152974CAA40090AED2 /* SceneDelegate.swift in Sources */,
+				216A7E4629766A870090AED2 /* RocketDetailsViewModel.swift in Sources */,
 				216A7E3A2975AF730090AED2 /* RocketListViewModel.swift in Sources */,
 				216A7E4429765B5D0090AED2 /* ImageLoaderService.swift in Sources */,
 				216A7E2E2974E2580090AED2 /* RocketDetailsView.swift in Sources */,

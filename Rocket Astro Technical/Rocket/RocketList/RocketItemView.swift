@@ -15,9 +15,10 @@ struct RocketItemView: View {
     }
   
     var body: some View {
-        NavigationLink(destination: RocketDetailsView()) {
+        NavigationLink(destination: RocketDetailsView.init(viewModel: RocketDetailsViewModel(item: viewModel.item))) {
             HStack {
-                CustomImageView(urlString: viewModel.imageUrl) // This is where you extract urlString from Model ( transaction.imageUrl)
+                CustomImageView(urlString: viewModel.imageUrl)
+                    .frame(width: 80, height: 80)
                 
                 VStack(alignment: .leading) {
                     Text("\(viewModel.name)")

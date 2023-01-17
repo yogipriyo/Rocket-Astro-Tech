@@ -5,11 +5,8 @@
 //  Created by Yogi Priyo Prayogo on 16/01/23.
 //
 
-import Foundation
-import SwiftUI
-
 struct RocketItemViewModel: Identifiable {
-    private let item: RocketDetails
+    internal let item: RocketDetails
   
     var id: String {
         return item.id

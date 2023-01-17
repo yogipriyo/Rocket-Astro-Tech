@@ -31,16 +31,30 @@ class RocketListViewModel: ObservableObject, Identifiable {
             .store(in: &disposables)
     }
     
-    func filterRocket(forRocket name: String) {
+    private func filterRocket(forRocket name: String) {
         if !name.isEmpty {
-            let newRocketList = originDataSource.filter { $0.name.contains(name) }
-            self.dataSource = newRocketList
+            updateDataSource(forRocket: name)
         } else {
-            self.dataSource = originDataSource
+            resetDataSource()
         }
     }
     
-    func fetchRocket() {
+    private func updateDataSource(forRocket name: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let newRocketList = self.originDataSource.filter { $0.name.contains(name) }
+            self.dataSource = newRocketList
+        }
+    }
+    
+    private func resetDataSource() {
+        DispatchQueue.main.async {  [weak self] in
+            guard let self = self else { return }
+            self.dataSource = self.originDataSource
+        }
+    }
+    
+    private func fetchRocket() {
         rocketFetcher.getAllRockets()
             .map { response in
                 response.map(RocketItemViewModel.init)

@@ -22,12 +22,11 @@ struct RocketListView: View {
                 if viewModel.dataSource.isEmpty {
                     emptySection
                 } else {
-                    cityHourlyWeatherSection
                     forecastSection
                 }
             }
             .listStyle(GroupedListStyle())
-            .navigationBarTitle("Rockets")
+            .navigationBarTitle("Rocket List")
         }
     }
 }
@@ -35,34 +34,21 @@ struct RocketListView: View {
 private extension RocketListView {
     var searchField: some View {
         HStack(alignment: .center) {
-            TextField("e.g. Falcon", text: $viewModel.rocketName)
+            TextField("Search : e.g. Falcon", text: $viewModel.rocketName)
         }
     }
 
-  var forecastSection: some View {
-      Section {
-          ForEach(viewModel.dataSource, content: RocketItemView.init(viewModel:))
-      }
-  }
+    var forecastSection: some View {
+        Section {
+            ForEach(viewModel.dataSource, content: RocketItemView.init(viewModel:))
+        }
+    }
 
-  var cityHourlyWeatherSection: some View {
-      Section {
-          NavigationLink(destination: RocketDetailsView()) {
-              VStack(alignment: .leading) {
-                  Text("viewModel.city")
-                  Text("Weather today")
-                      .font(.caption)
-                      .foregroundColor(.gray)
-              }
-          }
-      }
-  }
-
-  var emptySection: some View {
-      Section {
-          Text("No results")
-              .foregroundColor(.gray)
-      }
-  }
+    var emptySection: some View {
+        Section {
+            Text("No results")
+                .foregroundColor(.gray)
+        }
+    }
 }
 

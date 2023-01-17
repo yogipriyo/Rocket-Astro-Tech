@@ -20,14 +20,21 @@ class RocketListViewModel: ObservableObject, Identifiable {
         scheduler: DispatchQueue = DispatchQueue(label: "RocketViewModel")
     ) {
         self.rocketFetcher = rocketFetcher
+        
+        fetchRocket()
+        
         $rocketName
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
-            .sink(receiveValue: fetchRocket(forRocket:))
+            .sink(receiveValue: filterRocket(forRocket:))
             .store(in: &disposables)
     }
     
-    func fetchRocket(forRocket name: String) {
+    func filterRocket(forRocket name: String) {
+        print("_+_+_ \(name)")
+    }
+    
+    func fetchRocket() {
         rocketFetcher.getAllRockets()
             .map { response in
                 response.map(RocketItemViewModel.init)

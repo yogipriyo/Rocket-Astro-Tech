@@ -15,19 +15,20 @@ struct RocketItemView: View {
     }
   
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("\(viewModel.name)")
-                    .font(.body)
-                Text("\(viewModel.description)")
-                    .font(.footnote)
+        NavigationLink(destination: RocketDetailsView()) {
+            HStack {
+                CustomImageView(urlString: viewModel.imageUrl) // This is where you extract urlString from Model ( transaction.imageUrl)
+                
+                VStack(alignment: .leading) {
+                    Text("\(viewModel.name)")
+                        .font(.body)
+                        .padding(.bottom, 2)
+                    Text("\(viewModel.description)")
+                        .font(.footnote)
+                        .lineLimit(2)
+                }
+                .padding(.leading, 8)
             }
-            .padding(.leading, 8)
-
-            Spacer()
-            
-            Image("RightChevron").resizable()
-                .scaledToFit()
         }
     }
 }

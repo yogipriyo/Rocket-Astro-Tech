@@ -23,9 +23,13 @@ struct RocketListView: View {
                 case .loading:
                     ActivityIndicator()
                 case .loaded:
-                    forecastSection
+                    if viewModel.dataSource.isEmpty {
+                        emptySection
+                    } else {
+                        forecastSection
+                    }
                 default:
-                    emptySection
+                    errorSection
                 }
             }
             .listStyle(GroupedListStyle())
@@ -45,6 +49,22 @@ private extension RocketListView {
         Section {
             ForEach(viewModel.dataSource, content: RocketItemView.init(viewModel:))
         }
+    }
+    
+    var errorSection: some View {
+        VStack(alignment: .center, spacing: 20) {
+            HStack(alignment: .center) {
+                Spacer()
+                Text("Sorry, we have an error, please retry..")
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+            
+            Button("Retry!") {
+                viewModel.fetchRocket()
+            }
+        }
+        .frame(height: 400)
     }
 
     var emptySection: some View {

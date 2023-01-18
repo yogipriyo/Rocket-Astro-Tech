@@ -63,7 +63,7 @@ class RocketListViewModel: ObservableObject, Identifiable {
         }
     }
     
-    private func fetchRocket() {
+    func fetchRocket() {
         self.state = .loading
         rocketFetcher.getAllRockets()
             .map { response in

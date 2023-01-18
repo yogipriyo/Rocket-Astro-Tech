@@ -9,8 +9,17 @@ import SwiftUI
 import Combine
 
 class RocketListViewModel: ObservableObject, Identifiable {
+    
+    enum State {
+        case idle
+        case loading
+        case failed
+        case loaded
+    }
+    
     @Published var rocketName: String = ""
     @Published var dataSource: [RocketItemViewModel] = []
+    @Published private(set) var state = State.idle
 
     private var originDataSource: [RocketItemViewModel] = []
     private let rocketFetcher: RocketFetchable
@@ -55,6 +64,7 @@ class RocketListViewModel: ObservableObject, Identifiable {
     }
     
     private func fetchRocket() {
+        self.state = .loading
         rocketFetcher.getAllRockets()
             .map { response in
                 response.map(RocketItemViewModel.init)
@@ -67,12 +77,14 @@ class RocketListViewModel: ObservableObject, Identifiable {
                     case .failure:
                         self.dataSource = []
                         self.originDataSource = []
+                        self.state = .failed
                     case .finished:
                         break
                     }
                 },
                 receiveValue: { [weak self] rockets in
                     guard let self = self else { return }
+                    self.state = .loaded
                     self.dataSource = rockets
                     self.originDataSource = rockets
             })

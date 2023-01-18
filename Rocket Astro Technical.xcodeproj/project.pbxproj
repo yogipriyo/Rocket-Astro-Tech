@@ -23,6 +23,7 @@
 		216A7E4129765B360090AED2 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E4029765B350090AED2 /* CustomImageView.swift */; };
 		216A7E4429765B5D0090AED2 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E4329765B5D0090AED2 /* ImageLoaderService.swift */; };
 		216A7E4629766A870090AED2 /* RocketDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E4529766A870090AED2 /* RocketDetailsViewModel.swift */; };
+		216A7E482977744A0090AED2 /* SimpleActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A7E47297774490090AED2 /* SimpleActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		216A7E4029765B350090AED2 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		216A7E4329765B5D0090AED2 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		216A7E4529766A870090AED2 /* RocketDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsViewModel.swift; sourceTree = "<group>"; };
+		216A7E47297774490090AED2 /* SimpleActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				216A7E4029765B350090AED2 /* CustomImageView.swift */,
+				216A7E47297774490090AED2 /* SimpleActivityIndicator.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216A7E482977744A0090AED2 /* SimpleActivityIndicator.swift in Sources */,
 				216A7E38297557940090AED2 /* Response.swift in Sources */,
 				216A7E4129765B360090AED2 /* CustomImageView.swift in Sources */,
 				216A7E3E2975B21D0090AED2 /* RocketItemViewModel.swift in Sources */,

@@ -18,11 +18,14 @@ struct RocketListView: View {
         NavigationView {
             List {
                 searchField
-
-                if viewModel.dataSource.isEmpty {
-                    emptySection
-                } else {
+                
+                switch viewModel.state {
+                case .loading:
+                    ActivityIndicator()
+                case .loaded:
                     forecastSection
+                default:
+                    emptySection
                 }
             }
             .listStyle(GroupedListStyle())

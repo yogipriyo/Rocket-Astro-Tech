@@ -50,7 +50,7 @@ private extension RocketFetcher {
         static let path = "/v4"
     }
   
-    func makeGetAllRocketsComponents() -> URLComponents {
+    private func makeGetAllRocketsComponents() -> URLComponents {
         var components = URLComponents()
         components.scheme = SpaceXDataAPI.scheme
         components.host = SpaceXDataAPI.host
